@@ -21,7 +21,7 @@ class DefaultIndicatorController implements IndicatorController {
     private int mSlideCount;
     int selectedDotColor = DEFAULT_COLOR;
     int unselectedDotColor = DEFAULT_COLOR;
-    int mCurrentposition;
+    int mCurrentposition = FIRST_PAGE_NUM;
 
     private static final int FIRST_PAGE_NUM = 0;
 
@@ -39,6 +39,8 @@ class DefaultIndicatorController implements IndicatorController {
         selectedDotColor = -1;
         unselectedDotColor = -1;
 
+        mDotLayout.removeAllViews();
+
         for (int i = 0; i < slideCount; i++) {
             ImageView dot = new ImageView(mContext);
             dot.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.indicator_dot_grey));
@@ -52,7 +54,7 @@ class DefaultIndicatorController implements IndicatorController {
             mDots.add(dot);
         }
 
-        selectPosition(FIRST_PAGE_NUM);
+        selectPosition(mCurrentposition);
     }
 
     @Override

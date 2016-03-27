@@ -32,7 +32,7 @@ public abstract class AppIntro2 extends AppCompatActivity {
     protected AppIntroViewPager pager;
     protected List<Fragment> fragments = new Vector<>();
     protected List<ImageView> dots;
-    protected int slidesNumber;
+    protected int slidesNumber = 0;
     protected Vibrator mVibrator;
     protected IndicatorController mController;
     protected boolean isVibrateOn = false;
@@ -220,6 +220,7 @@ public abstract class AppIntro2 extends AppCompatActivity {
 
     public void addSlide(@NonNull Fragment fragment) {
         fragments.add(fragment);
+        slidesNumber++;
         mPagerAdapter.notifyDataSetChanged();
     }
 
